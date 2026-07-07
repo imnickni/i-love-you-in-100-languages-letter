@@ -1,0 +1,82 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #000;
+    font-family: 'Arial', sans-serif;
+    min-height: 100vh;
+    overflow: hidden; /* Impede barras de rolagem feias no fundo */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Canvas do Fundo */
+#heartCanvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+/* Container da Carta */
+.card-container {
+    position: relative;
+    z-index: 2;
+    width: 90%;
+    max-width: 400px; /* Largura ideal para celular e PC */
+    padding: 20px;
+}
+
+/* Estilo da Carta */
+.card {
+    background: rgba(255, 255, 255, 0.95); /* Branco levemente transparente */
+    backdrop-filter: blur(5px); /* Efeito sutil de vidro */
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(255, 20, 147, 0.3); /* Sombra rosa neon suave */
+    border: 1px solid rgba(255, 20, 147, 0.2);
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+/* Textos da Carta */
+.card h2 {
+    color: #ff1493; /* Rosa profundo */
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+}
+
+.card p {
+    color: #333;
+    line-height: 1.6;
+    font-size: 1rem;
+    margin-bottom: 15px;
+    text-align: justify;
+}
+
+.card .signature {
+    text-align: right;
+    font-style: italic;
+    font-weight: bold;
+    color: #ff1493;
+    margin-top: 20px;
+    margin-bottom: 0;
+}
+
+/* Animação de surgimento da carta */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
