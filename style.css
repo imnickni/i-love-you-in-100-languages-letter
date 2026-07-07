@@ -9,7 +9,7 @@ body {
     background-color: #000;
     font-family: 'Arial', sans-serif;
     min-height: 100vh;
-    overflow: hidden; /* Impede barras de rolagem feias no fundo */
+    overflow: hidden; /* Mantém o fundo fixo sem barras de rolagem na tela inteira */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -30,24 +30,31 @@ body {
     position: relative;
     z-index: 2;
     width: 90%;
-    max-width: 400px; /* Largura ideal para celular e PC */
+    max-width: 400px;
     padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-/* Estilo da Carta */
+/* Estilo da Carta Corrigido */
 .card {
-    background: rgba(255, 255, 255, 0.95); /* Branco levemente transparente */
-    backdrop-filter: blur(5px); /* Efeito sutil de vidro */
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(5px);
     border-radius: 15px;
     padding: 30px;
-    box-shadow: 0 10px 30px rgba(255, 20, 147, 0.3); /* Sombra rosa neon suave */
+    box-shadow: 0 10px 30px rgba(255, 20, 147, 0.3);
     border: 1px solid rgba(255, 20, 147, 0.2);
     animation: fadeIn 1.5s ease-in-out;
+
+    /* NOVIDADE AQUI: Limita a altura da carta na tela do celular e permite scroll interno */
+    max-height: 80vh; /* Ocupa no máximo 80% da altura da tela do aparelho */
+    overflow-y: auto; /* Cria a barra de rolagem apenas quando o texto for maior que a carta */
 }
 
 /* Textos da Carta */
 .card h2 {
-    color: #ff1493; /* Rosa profundo */
+    color: #ff1493;
     margin-bottom: 15px;
     font-size: 1.5rem;
 }
